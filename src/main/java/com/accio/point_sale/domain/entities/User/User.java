@@ -1,15 +1,13 @@
-package com.accio.point_sale.domain.entities.Product;
+package com.accio.point_sale.domain.entities.User;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,26 +15,25 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "products")
+@Table(name = "user")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-public class Product {
+public class User {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
-
-	@Column(nullable = false)
+	
+	@NotBlank(message = "Name is required")
 	private String name;
 
-	@Column(nullable = false, precision = 10, scale = 2)
-	@Builder.Default
-	private BigDecimal price = BigDecimal.ZERO;
+	@NotBlank(message = "Email is required")
+	private String email;
 
-	@Builder.Default
-	private Integer stock = 0;
+	@NotBlank(message = "Password is required")
+	private String password;
 
 }
