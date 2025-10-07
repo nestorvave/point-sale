@@ -1,13 +1,19 @@
 package com.accio.point_sale.domain.entities.User;
 
+import java.util.List;
 import java.util.UUID;
 
+import com.accio.point_sale.domain.entities.Sale.Sale;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,7 +21,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users") 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -25,15 +31,17 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-	private UUID id;
-	
-	@NotBlank(message = "Name is required")
-	private String name;
+    private UUID id;
 
-	@NotBlank(message = "Email is required")
-	private String email;
+    @Column(nullable = false)
+    private String name;
 
-	@NotBlank(message = "Password is required")
-	private String password;
+    @Column(nullable = false, unique = true)
+    private String email;
 
+    @Column(nullable = false)
+    private String password;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Sale> sales;
 }
