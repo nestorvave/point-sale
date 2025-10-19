@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.accio.point_sale.domain.entities.User.User;
+import com.accio.point_sale.domain.entities.User;
 import com.accio.point_sale.repositories.UserRepository;
 
 import lombok.RequiredArgsConstructor;

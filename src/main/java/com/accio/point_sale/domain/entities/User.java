@@ -1,10 +1,7 @@
-package com.accio.point_sale.domain.entities.User;
+package com.accio.point_sale.domain.entities;
 
 import java.util.List;
 import java.util.UUID;
-
-import com.accio.point_sale.domain.entities.Sale.Sale;
-
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

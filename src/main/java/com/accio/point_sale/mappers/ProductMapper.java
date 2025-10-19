@@ -1,8 +1,8 @@
-package com.accio.point_sale.mappers.Product;
+package com.accio.point_sale.mappers;
 
 import com.accio.point_sale.domain.dtos.Product.CreateProductDto;
 import com.accio.point_sale.domain.dtos.Product.ProductDto;
-import com.accio.point_sale.domain.entities.Product.Product;
+import com.accio.point_sale.domain.entities.Product;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

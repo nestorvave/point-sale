@@ -1,4 +1,4 @@
-package com.accio.point_sale.mappers.SaleItem;
+package com.accio.point_sale.mappers;
 
 import java.math.BigDecimal;
 
@@ -8,7 +8,7 @@ import org.mapstruct.Named;
 import org.mapstruct.ReportingPolicy;
 
 import com.accio.point_sale.domain.dtos.SaleItem.SaleItemDtoResponse;
-import com.accio.point_sale.domain.entities.SaleItem.SaleItem;
+import com.accio.point_sale.domain.entities.SaleItem;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface SaleItemMapper {

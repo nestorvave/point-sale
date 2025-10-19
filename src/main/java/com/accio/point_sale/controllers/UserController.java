@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.accio.point_sale.domain.dtos.Product.ProductDto;
 import com.accio.point_sale.domain.dtos.User.UserDtoRequest;
 import com.accio.point_sale.domain.dtos.User.UserDtoResponse;
-import com.accio.point_sale.mappers.User.UserMapper;
+import com.accio.point_sale.mappers.UserMapper;
 import com.accio.point_sale.services.User.UserService;
 
 import io.swagger.v3.oas.annotations.Operation;

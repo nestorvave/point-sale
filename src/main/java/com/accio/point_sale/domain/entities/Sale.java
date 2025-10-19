@@ -1,12 +1,9 @@
-package com.accio.point_sale.domain.entities.Sale;
+package com.accio.point_sale.domain.entities;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
-
-import com.accio.point_sale.domain.entities.SaleItem.SaleItem;
-import com.accio.point_sale.domain.entities.User.User;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

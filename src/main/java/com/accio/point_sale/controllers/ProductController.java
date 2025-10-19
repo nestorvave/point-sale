@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.accio.point_sale.domain.dtos.Product.CreateProductDto;
 import com.accio.point_sale.domain.dtos.Product.ProductDto;
-import com.accio.point_sale.domain.entities.Product.Product;
-import com.accio.point_sale.mappers.Product.ProductMapper;
+import com.accio.point_sale.domain.entities.Product;
+import com.accio.point_sale.mappers.ProductMapper;
 import com.accio.point_sale.services.Product.ProductService;
 
 import io.swagger.v3.oas.annotations.Operation;

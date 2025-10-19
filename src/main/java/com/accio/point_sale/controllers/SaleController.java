@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.accio.point_sale.domain.dtos.Sale.SaleCreateDtoRequest;
 import com.accio.point_sale.domain.dtos.Sale.SaleDtoResponse;
-import com.accio.point_sale.domain.entities.Sale.Sale;
-import com.accio.point_sale.domain.entities.User.User;
-import com.accio.point_sale.mappers.Sale.SaleMapper;
+import com.accio.point_sale.domain.entities.Sale;
+import com.accio.point_sale.domain.entities.User;
+import com.accio.point_sale.mappers.SaleMapper;
 import com.accio.point_sale.services.Sale.SaleService;
 import com.accio.point_sale.services.User.UserService;
 

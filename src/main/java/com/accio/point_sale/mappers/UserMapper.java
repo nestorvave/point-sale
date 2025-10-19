@@ -1,9 +1,8 @@
-package com.accio.point_sale.mappers.User;
+package com.accio.point_sale.mappers;
 
 import com.accio.point_sale.domain.dtos.User.UserDtoRequest;
 import com.accio.point_sale.domain.dtos.User.UserDtoResponse;
-
-import com.accio.point_sale.domain.entities.User.User;
+import com.accio.point_sale.domain.entities.User;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

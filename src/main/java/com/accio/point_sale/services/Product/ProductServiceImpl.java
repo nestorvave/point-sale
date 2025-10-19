@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import com.accio.point_sale.domain.entities.Product.Product;
+import com.accio.point_sale.domain.entities.Product;
 import com.accio.point_sale.repositories.ProductRepository;
 
 import jakarta.persistence.EntityNotFoundException;

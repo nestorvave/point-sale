@@ -1,10 +1,7 @@
-package com.accio.point_sale.domain.entities.SaleItem;
+package com.accio.point_sale.domain.entities;
 
 import java.math.BigDecimal;
 import java.util.UUID;
-
-import com.accio.point_sale.domain.entities.Product.Product;
-import com.accio.point_sale.domain.entities.Sale.Sale;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

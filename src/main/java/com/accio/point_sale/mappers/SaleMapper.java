@@ -1,12 +1,10 @@
-package com.accio.point_sale.mappers.Sale;
+package com.accio.point_sale.mappers;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import com.accio.point_sale.domain.dtos.Sale.SaleDtoResponse;
-import com.accio.point_sale.domain.entities.Sale.Sale;
-import com.accio.point_sale.mappers.SaleItem.SaleItemMapper;
-import com.accio.point_sale.mappers.User.UserMapper;
+import com.accio.point_sale.domain.entities.Sale;
 
 @Mapper(componentModel = "spring", uses = { SaleItemMapper.class, UserMapper.class })
 public interface SaleMapper {
