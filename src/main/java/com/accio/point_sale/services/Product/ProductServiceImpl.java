@@ -33,4 +33,17 @@ public class ProductServiceImpl implements ProductService {
 				.orElseThrow(() -> new EntityNotFoundException("Product not found with id: " + id));
 	}
 
+	@Override
+	public Product updateProduct(Product product) {
+		if (productRepository.findById(product.getId()).isPresent()) {
+			return productRepository.save(product);
+		}
+		throw new EntityNotFoundException("Product not found with id: " + product.getId());
+	}
+
+	@Override
+	public List<Product> updateMultipleProducts(List<Product> products) {
+		return productRepository.saveAll(products);
+	}
+
 }

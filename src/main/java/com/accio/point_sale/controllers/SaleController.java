@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.accio.point_sale.domain.dtos.Sale.SaleCreateDtoRequest;
 import com.accio.point_sale.domain.dtos.Sale.SaleDtoResponse;
-import com.accio.point_sale.domain.dtos.User.UserDtoResponse;
 import com.accio.point_sale.domain.entities.Sale;
 import com.accio.point_sale.domain.entities.User;
 import com.accio.point_sale.mappers.SaleMapper;
@@ -21,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -57,7 +57,7 @@ public class SaleController {
 		User user = userService.findById(saleRequest.getUserID());
 		Sale sale = saleService.createSale(saleRequest, user);
 
-		return ResponseEntity.ok(saleMapper.toDtoResponse(sale));
+		return new ResponseEntity<>(saleMapper.toDtoResponse(sale), HttpStatus.CREATED);
 	}
 
 }

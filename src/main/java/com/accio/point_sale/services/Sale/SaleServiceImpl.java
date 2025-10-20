@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -29,6 +30,8 @@ public class SaleServiceImpl implements SaleService {
 	@Transactional
 	public Sale createSale(SaleCreateDtoRequest saleRequest, User user) {
 
+
+		//Need Refactor cuz N+1 query ISSUE 
 		List<Product> products = saleRequest.getSaleItems().stream()
 				.map(item -> productService.getProductById(item.getProductID())).toList();
 
@@ -43,19 +46,28 @@ public class SaleServiceImpl implements SaleService {
 			BigDecimal subtotal = product.getPrice().multiply(BigDecimal.valueOf(item.getQuantity()));
 			totalAmount = totalAmount.add(subtotal);
 		}
+
 		Sale sale = Sale.builder()
 				.user(user)
 				.createdAt(LocalDateTime.now())
 				.totalAmount(totalAmount)
 				.build();
 
-
+		List<Product> productsUpdated = new ArrayList<>();
 		List<SaleItem> saleItems = saleRequest.getSaleItems().stream()
 				.map(item -> {
 					Product product = products.stream()
 							.filter(p -> p.getId().equals(item.getProductID()))
 							.findFirst()
 							.orElseThrow(() -> new RuntimeException("Product not found"));
+
+					if (!product.getIsService()) {
+						if (product.getStock() <= 0 || product.getStock() < item.getQuantity()) {
+							throw new RuntimeException("Not enough stock");
+						}
+						product.setStock(product.getStock() - item.getQuantity());
+						productsUpdated.add(product);
+					}
 
 					return SaleItem.builder()
 							.product(product)
@@ -67,6 +79,8 @@ public class SaleServiceImpl implements SaleService {
 				.toList();
 
 		sale.setSaleItems(saleItems);
+
+		productService.updateMultipleProducts(productsUpdated);
 
 		return saleRepository.save(sale);
 

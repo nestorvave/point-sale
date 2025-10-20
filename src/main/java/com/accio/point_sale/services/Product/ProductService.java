@@ -13,4 +13,8 @@ public interface ProductService {
 
 	Product getProductById(UUID id);
 
+	Product updateProduct(Product product);
+
+	List<Product> updateMultipleProducts(List<Product> products); 
+
 }

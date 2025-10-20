@@ -26,4 +26,7 @@ public class ProductDto {
 	@Builder.Default
 	private Integer stock = 0;
 
+	@Builder.Default
+	private Boolean isService = false;
+
 }

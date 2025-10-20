@@ -30,4 +30,8 @@ public class CreateProductDto {
 	@Builder.Default
 	private Integer stock = 0;
 
+	@Schema(description = "Product is service, optional", example = "false", required = false)
+	@Builder.Default
+	private Boolean isService = false;
+
 }

@@ -42,8 +42,15 @@ public class Product {
 	@Builder.Default
 	private BigDecimal price = BigDecimal.ZERO;
 
+	@Column(nullable = true)
 	@Builder.Default
 	private Integer stock = 0;
+
+
+	@Column(nullable = false)
+	@Builder.Default
+	private Boolean isService = false;	
+
 
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
 	private List<SaleItem> saleItems;
