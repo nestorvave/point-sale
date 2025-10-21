@@ -25,4 +25,6 @@ public class SaleCreateDtoRequest {
 	@NotEmpty(message = "Sale must have at least one item")
 	private List<@Valid SaleItemCreateDtoRequest> saleItems;
 
+	private String customerEmail;
+
 }
