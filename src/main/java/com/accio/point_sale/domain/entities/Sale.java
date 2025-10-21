@@ -49,7 +49,7 @@ public class Sale {
 	private List<SaleItem> saleItems;
 	
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id", nullable = true)
     private Customer customer;
 

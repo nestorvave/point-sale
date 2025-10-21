@@ -6,7 +6,7 @@ import org.mapstruct.Mapping;
 import com.accio.point_sale.domain.dtos.Sale.SaleDtoResponse;
 import com.accio.point_sale.domain.entities.Sale;
 
-@Mapper(componentModel = "spring", uses = { SaleItemMapper.class, UserMapper.class })
+@Mapper(componentModel = "spring", uses = { SaleItemMapper.class, UserMapper.class, CustomerMapper.class })
 public interface SaleMapper {
 
 	@Mapping(target = "saleID", source = "id")

@@ -8,4 +8,6 @@ import com.accio.point_sale.domain.entities.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, UUID> {
 
+	Customer findByEmail(String email);
+
 }

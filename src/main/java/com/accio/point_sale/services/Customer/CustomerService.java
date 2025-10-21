@@ -8,7 +8,11 @@ public interface CustomerService {
 	
 	Customer createCustomer(Customer customer);
 
+	Customer getCustomerByEmail(String email);
+
 	List<Customer> getAllCustomers();
 
 	List<Customer> createBulkCustomers(List<Customer> customers);
+
+
 }

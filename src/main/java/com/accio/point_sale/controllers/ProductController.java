@@ -57,4 +57,15 @@ public class ProductController {
 		return ResponseEntity.ok(productMapper.toDto(product));
 	}
 
+	@Operation(summary = "Create a bulk of products", description = "Add a new products to the system")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Products created successfully", content = @Content(schema = @Schema(implementation = CreateProductDto.class))),
+			@ApiResponse(responseCode = "400", description = "Invalid request data", content = @Content(schema = @Schema()))
+	})
+	@PostMapping("/bulk")
+	public ResponseEntity<List<ProductDto>> createBulkProducts(@RequestBody List<CreateProductDto> createProductDto) {
+		List<Product> products = productService.updateMultipleProducts(createProductDto.stream().map(productMapper::toEntity).toList());
+		return ResponseEntity.ok(products.stream().map(productMapper::toDto).toList());
+	}
+
 }
